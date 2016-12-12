@@ -24,7 +24,7 @@ You need to have `git` and `ruby` installed on your computer.
 
 7. Save the Request URL. It starts like this: `https://stormcloud-146919.appspot.com/auth/login/?...`
 
-##### Clone this repository 
+##### Clone this repository
 
 Run the following commands if you're on MacOS or some variation of Linux:
 
@@ -39,6 +39,8 @@ cd neverwing
 
 2. Replace the login URL with your login URL.
 
-3. Run `ruby run.rb` in the project folder.
+3. Run `ruby play.rb` in the project folder to play a single game.
+
+4. Run `ruby train_sidekicks.rb` in the project folder to train all your dragons.
 
 ### Enjoy!
