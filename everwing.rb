@@ -14,7 +14,7 @@ class Everwing
   end
 
   def base_url
-    @base_url ||= LOGIN_URL.split(LOGIN_PATH).first
+    @base_url ||= login_url.split(LOGIN_PATH).first
   end
 
   def user_id
@@ -26,7 +26,7 @@ class Everwing
   end
 
   def params
-    @params ||= LOGIN_URL.split('?').last.split('&').map do |param|
+    @params ||= login_url.split('?').last.split('&').map do |param|
       param.split('=')
     end.to_h
   end

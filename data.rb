@@ -11,6 +11,13 @@ class Everwing
     end
   end
 
+  def trainable_sidekicks
+    @trainable_sidekicks ||= sidekicks.reject do |sidekick|
+      experience = sidekick['stats'].find{ |stat| stat['name'] == 'xp' }
+      experience['value'] == experience['maximum']
+    end
+  end
+
   def left_sidekick
     @left_sidekick ||= sidekicks.find do |sidekick|
       sidekick['state'] == 'equippedLeft'
