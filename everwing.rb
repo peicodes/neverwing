@@ -4,13 +4,13 @@ require_relative 'data'
 require_relative 'request'
 
 class Everwing
-  attr_accessor :user_data
+  attr_accessor :user_data, :login_url
 
-  LOGIN_URL = 'the login url from the network log'
   LOGIN_PATH = '/auth/login'
 
-  def initialize
-    @user_data = JSON.parse(RestClient.get(LOGIN_URL).body)
+  def initialize(login_url)
+    @login_url = login_url
+    @user_data = JSON.parse(RestClient.get(login_url).body)
   end
 
   def base_url
