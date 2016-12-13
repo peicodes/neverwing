@@ -5,12 +5,13 @@ require_relative 'config'
 require_relative 'data'
 require_relative 'schema'
 require_relative 'play'
-require_relative 'request'
+require_relative 'dragons'
 
 class Everwing
   attr_accessor :login_url
 
-  LOGIN_PATH = '/auth/login'
+  LOGIN_PATH = '/auth/login'.freeze
+  LISTING_PATH = '/purchase/listing'.freeze
 
   def initialize(login_url)
     @login_url = login_url

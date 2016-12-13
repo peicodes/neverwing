@@ -1,14 +1,14 @@
 class Everwing
-  attr_accessor :inventory, :global_key, :characters, :sidekicks, :trainable_sidekicks, :left_sidekick, :right_sidekick
+  attr_accessor :inventory, :global_key, :characters, :dragons, :trainable_dragons, :left_dragon, :right_dragon
 
   def load_data
     load_inventory
     load_global_key
     load_characters
-    load_sidekicks
-    load_trainable_sidekicks
-    load_left_sidekick
-    load_right_sidekick
+    load_dragons
+    load_trainable_dragons
+    load_left_dragon
+    load_right_dragon
   end
 
   def load_inventory
@@ -25,28 +25,28 @@ class Everwing
     end
   end
 
-  def load_sidekicks
-    @sidekicks = inventory.select do |item|
+  def load_dragons
+    @dragons = inventory.select do |item|
       item['model'].include?('sidekick')
     end
   end
 
-  def load_trainable_sidekicks
-    @trainable_sidekicks = sidekicks.reject do |sidekick|
-      experience = sidekick['stats'].find{ |stat| stat['name'] == 'xp' }
+  def load_trainable_dragons
+    @trainable_dragons = dragons.reject do |dragon|
+      experience = dragon['stats'].find{ |stat| stat['name'] == 'xp' }
       experience['value'] == experience['maximum']
     end
   end
 
-  def load_left_sidekick
-    @left_sidekick ||= sidekicks.find do |sidekick|
-      sidekick['state'] == 'equippedLeft'
+  def load_left_dragon
+    @left_dragon ||= dragons.find do |dragon|
+      dragon['state'] == 'equippedLeft'
     end
   end
 
-  def load_right_sidekick
-    @right_sidekick ||= sidekicks.find do |sidekick|
-      sidekick['state'] == 'equippedRight'
+  def load_right_dragon
+    @right_dragon ||= dragons.find do |dragon|
+      dragon['state'] == 'equippedRight'
     end
   end
 end

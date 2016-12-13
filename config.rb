@@ -9,7 +9,6 @@ class Everwing
     @data = JSON.parse(RestClient.get(login_url).body)
   end
 
-
   private
 
   def login_params

@@ -1,17 +1,18 @@
+require 'pp'
+
 class Everwing
-  PLAY_PATH = '/purchase/listing'.freeze
 
-  def play(params)
-    params = play_params(coins: params[:coins], experience: params[:experience])
-    params.merge!(left_sidekick_params(experience: params[:left_sidekick_experience])) if left_sidekick
-    params.merge!(right_sidekick_params(experience: params[:right_sidekick_experience])) if right_sidekick
+  def play(coins: 100, experience: 100, dragon_experience: 100)
+    params = play_params(coins: coins, experience: experience)
+    params.merge!(left_dragon_params(experience: dragon_experience)) if left_dragon
+    params.merge!(right_dragon_params(experience: dragon_experience)) if right_dragon
 
-    response = RestClient.get(base_url + PLAY_PATH, params: params)
+    response = RestClient.get(base_url + LISTING_PATH, params: params)
   end
 
   private
 
-  def play_params(coins: 1994, experience: 1994)
+  def play_params(coins:, experience:)
     {
       global: global_key,
       coin: coins,
@@ -21,16 +22,16 @@ class Everwing
     }
   end
 
-  def left_sidekick_params(experience: 1994)
+  def left_dragon_params(experience:)
     {
-      sidekick1: left_sidekick['key'],
+      sidekick1: left_dragon['key'],
       xpSidekick1: experience,
     }
   end
 
-  def right_sidekick_params(experience: 1994)
+  def right_dragon_params(experience:)
     {
-      sidekick2: right_sidekick['key'],
+      sidekick2: right_dragon['key'],
       xpSidekick2: experience,
     }
   end
