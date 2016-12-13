@@ -3,7 +3,8 @@ require 'json'
 
 require_relative 'config'
 require_relative 'data'
-require_relative 'keys'
+require_relative 'schema'
+require_relative 'play'
 require_relative 'request'
 
 class Everwing
@@ -19,6 +20,6 @@ class Everwing
   def reload
     load_config
     load_data
-    load_keys
+    load_schema
   end
 end

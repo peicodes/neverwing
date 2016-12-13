@@ -1,4 +1,37 @@
-require_relative 'everwing'
+class Everwing
+  PLAY_PATH = '/purchase/listing'.freeze
 
-LOGIN_URL = 'the login url from the network log'.freeze
-Everwing.new(LOGIN_URL).play(score: 1000, experience: 1000)
+  def play(params)
+    params = play_params(coins: params[:coins], experience: params[:experience])
+    params.merge!(left_sidekick_params(experience: params[:left_sidekick_experience])) if left_sidekick
+    params.merge!(right_sidekick_params(experience: params[:right_sidekick_experience])) if right_sidekick
+
+    response = RestClient.get(base_url + PLAY_PATH, params: params)
+  end
+
+  private
+
+  def play_params(coins: 1994, experience: 1994)
+    {
+      global: global_key,
+      coin: coins,
+      xpPlayer: experience,
+      k: user_key,
+      l: play_key,
+    }
+  end
+
+  def left_sidekick_params(experience: 1994)
+    {
+      sidekick1: left_sidekick['key'],
+      xpSidekick1: experience,
+    }
+  end
+
+  def right_sidekick_params(experience: 1994)
+    {
+      sidekick2: right_sidekick['key'],
+      xpSidekick2: experience,
+    }
+  end
+end

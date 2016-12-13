@@ -1,8 +1,9 @@
 class Everwing
-  attr_accessor :inventory, :characters, :sidekicks, :trainable_sidekicks, :left_sidekick, :right_sidekick
+  attr_accessor :inventory, :global_key, :characters, :sidekicks, :trainable_sidekicks, :left_sidekick, :right_sidekick
 
   def load_data
     load_inventory
+    load_global_key
     load_characters
     load_sidekicks
     load_trainable_sidekicks
@@ -12,6 +13,10 @@ class Everwing
 
   def load_inventory
     @inventory = data['player']['inventory']
+  end
+
+  def load_global_key
+    @global_key = inventory.find{ |item| item['model'] == 'item_global' }['key']
   end
 
   def load_characters
