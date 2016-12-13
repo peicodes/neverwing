@@ -4,25 +4,29 @@ class Neverwing
   PREMIUM_EGG_COST = 12000
 
   def buy_common_eggs(count=1)
+    count = 48 if count > 48
+
     total_cost = COMMON_EGG_COST * count
     games_needed = (total_cost / COINS_PER_GAME.to_f).ceil
-    buy_response = nil
 
     games_needed.times { make_coins }
-    count.times { buy_response = buy_common_egg }
+    count.times { buy_common_egg }
 
-    claim_dragons(buy_response['wallet'])
+    reload
+    claim_dragons(data['player']['wallet'])
   end
 
   def buy_premium_eggs(count=1)
+    count = 48 if count > 48
+
     total_cost = PREMIUM_EGG_COST * count
     games_needed = (total_cost / COINS_PER_GAME.to_f).ceil
-    buy_response = nil
 
     games_needed.times { make_coins }
-    count.times { buy_response = buy_premium_egg }
+    count.times { buy_premium_egg }
 
-    claim_dragons(buy_response['wallet'])
+    reload
+    claim_dragons(data['player']['wallet'])
   end
 
   private
