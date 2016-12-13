@@ -1,4 +1,4 @@
-# Neverwing Academy
+# Neverwing
 
 A cheating tool for the popular Messenger game, Everwing Academy.
 
@@ -35,12 +35,14 @@ cd neverwing
 
 ##### Add your login URL
 
-1. Use your favorite text editor and open up `bin/play.rb` and `bin/train_dragons.rb`.
+1. Use your favorite text editor and open up `bin/play_game.rb` and `bin/train_dragons.rb`.
 
 2. Replace the login URL with your login URL.
 
-3. Run `ruby bin/play.rb` in the project folder to play a single game.
+3. Run `ruby bin/play_game.rb` in the project folder to play a single game.
 
 4. Run `ruby bin/train_dragons.rb` in the project folder to train all your dragons.
+
+5. Close and Reopen Everwing.
 
 ### Enjoy!
