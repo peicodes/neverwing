@@ -2,7 +2,7 @@ class Everwing
   PLAY_PATH = '/purchase/listing'.freeze
 
   def play(score: 1994, experience: 1994)
-    url = "#{base_url}#{PLAY_PATH}?global=#{global_key}&coin=#{score}&xpPlayer=#{experience}&#{left_sidekick_params}#{right_sidekick_params}k=#{user_key}&l=#{game_key}"
+    url = "#{base_url}#{PLAY_PATH}?global=#{global_key}&coin=#{score}&xpPlayer=#{experience}&#{left_sidekick_params}#{right_sidekick_params}k=#{user_key}&l=#{play_key}"
     response = RestClient.get(url)
   end
 
