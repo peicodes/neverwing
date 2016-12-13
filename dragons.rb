@@ -8,55 +8,54 @@ class Everwing
     end
   end
 
+  private
+
   def equip_left_dragon(dragon)
     return swap_left_dragon(dragon) if left_dragon
 
-    params = {
-      sidekick1: dragon['key'],
-      k: user_key,
-      l: equip_left_dragon_key,
-    }
-
+    params = equip_params(left_dragon, equip_left_dragon_key)
     response = RestClient.get(base_url + LISTING_PATH, params: params)
+    @left_dragon = dragon if JSON.parse(response.body)['error'].nil?
   end
 
   def equip_right_dragon(dragon)
     return swap_right_dragon(dragon) if right_dragon
 
-    params = {
-      sidekick1: dragon['key'],
-      k: user_key,
-      l: equip_right_dragon_key,
-    }
-
+    params = equip_params(right_dragon, equip_right_dragon_key)
     response = RestClient.get(base_url + LISTING_PATH, params: params)
+    @right_dragon = dragon if JSON.parse(response.body)['error'].nil?
   end
-
-  private
 
   def swap_left_dragon(dragon)
     return if dragon == left_dragon
 
-    params = {
-      sidekick1: dragon['key'],
-      sidekick2: left_dragon['key'],
-      k: user_key,
-      l: swap_left_dragon_key,
-    }
-
+    params = swap_params(dragon, left_dragon, swap_left_dragon_key)
     response = RestClient.get(base_url + LISTING_PATH, params: params)
+    @left_dragon = dragon if JSON.parse(response.body)['error'].nil?
   end
 
   def swap_right_dragon(dragon)
     return if dragon == right_dragon
 
-    params = {
-      sidekick1: dragon['key'],
-      sidekick2: right_dragon['key'],
-      k: user_key,
-      l: swap_right_dragon_key,
-    }
-
+    params = swap_params(dragon, right_dragon, swap_right_dragon_key)
     response = RestClient.get(base_url + LISTING_PATH, params: params)
+    @right_dragon = dragon if JSON.parse(response.body)['error'].nil?
+  end
+
+  def equip_params(new_dragon, key)
+    params = {
+      sidekick1: new_dragon['key'],
+      k: user_key,
+      l: key,
+    }
+  end
+
+  def swap_params(old_dragon, new_dragon, key)
+    {
+      sidekick1: old_dragon['key'],
+      sidekick2: new_dragon['key'],
+      k: user_key,
+      l: key,
+    }
   end
 end
