@@ -1,5 +1,3 @@
-require 'pp'
-
 class Neverwing
 
   def play(coins: 100, experience: 100, dragon_experience: 100)

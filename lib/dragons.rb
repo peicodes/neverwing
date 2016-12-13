@@ -13,7 +13,7 @@ class Neverwing
   def equip_left_dragon(dragon)
     return swap_left_dragon(dragon) if left_dragon
 
-    params = equip_params(left_dragon, equip_left_dragon_key)
+    params = equip_params(dragon, equip_left_dragon_key)
     response = RestClient.get(base_url + LISTING_PATH, params: params)
     @left_dragon = dragon if JSON.parse(response.body)['error'].nil?
   end
@@ -21,7 +21,7 @@ class Neverwing
   def equip_right_dragon(dragon)
     return swap_right_dragon(dragon) if right_dragon
 
-    params = equip_params(right_dragon, equip_right_dragon_key)
+    params = equip_params(dragon, equip_right_dragon_key)
     response = RestClient.get(base_url + LISTING_PATH, params: params)
     @right_dragon = dragon if JSON.parse(response.body)['error'].nil?
   end
@@ -29,7 +29,7 @@ class Neverwing
   def swap_left_dragon(dragon)
     return if dragon == left_dragon
 
-    params = swap_params(dragon, left_dragon, swap_left_dragon_key)
+    params = swap_params(left_dragon, dragon, swap_left_dragon_key)
     response = RestClient.get(base_url + LISTING_PATH, params: params)
     @left_dragon = dragon if JSON.parse(response.body)['error'].nil?
   end
@@ -37,7 +37,7 @@ class Neverwing
   def swap_right_dragon(dragon)
     return if dragon == right_dragon
 
-    params = swap_params(dragon, right_dragon, swap_right_dragon_key)
+    params = swap_params(right_dragon, dragon, swap_right_dragon_key)
     response = RestClient.get(base_url + LISTING_PATH, params: params)
     @right_dragon = dragon if JSON.parse(response.body)['error'].nil?
   end

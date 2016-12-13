@@ -6,6 +6,7 @@ require_relative 'lib/data'
 require_relative 'lib/schema'
 require_relative 'lib/play'
 require_relative 'lib/dragons'
+require_relative 'lib/store'
 
 class Neverwing
   attr_accessor :login_url
