@@ -52,8 +52,8 @@ class Neverwing
 
   def swap_params(old_dragon, new_dragon, key)
     {
-      sidekick1: old_dragon['key'],
-      sidekick2: new_dragon['key'],
+      sidekick1: new_dragon['key'],
+      sidekick2: old_dragon['key'],
       k: user_key,
       l: key,
     }
