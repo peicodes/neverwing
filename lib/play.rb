@@ -1,6 +1,6 @@
 require 'pp'
 
-class Everwing
+class Neverwing
 
   def play(coins: 100, experience: 100, dragon_experience: 100)
     params = play_params(coins: coins, experience: experience)

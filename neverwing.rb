@@ -1,13 +1,13 @@
 require 'rest-client'
 require 'json'
 
-require_relative 'config'
-require_relative 'data'
-require_relative 'schema'
-require_relative 'play'
-require_relative 'dragons'
+require_relative 'lib/config'
+require_relative 'lib/data'
+require_relative 'lib/schema'
+require_relative 'lib/play'
+require_relative 'lib/dragons'
 
-class Everwing
+class Neverwing
   attr_accessor :login_url
 
   LOGIN_PATH = '/auth/login'.freeze

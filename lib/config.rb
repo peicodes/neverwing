@@ -1,5 +1,5 @@
 
-class Everwing
+class Neverwing
   attr_reader :base_url, :user_id, :user_key, :data
 
   def load_config

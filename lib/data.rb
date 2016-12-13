@@ -1,4 +1,4 @@
-class Everwing
+class Neverwing
   attr_accessor :inventory, :global_key, :characters, :dragons, :trainable_dragons, :left_dragon, :right_dragon
 
   def load_data

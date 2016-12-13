@@ -1,4 +1,4 @@
-class Everwing
+class Neverwing
   def train_dragons
     trainable_dragons.each_slice(2).with_index do |pair, i|
       puts "Training dragon pair #{i+1} of #{(trainable_dragons.count / 2.0).ceil}"

@@ -1,4 +1,4 @@
-class Everwing
+class Neverwing
   attr_accessor :play_key, :equip_left_dragon_key, :equip_right_dragon_key, :swap_left_dragon_key, :swap_right_dragon_key
 
   def load_schema
