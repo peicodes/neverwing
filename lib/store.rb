@@ -14,6 +14,9 @@ class Neverwing
 
     reload
     claim_dragons(data['player']['wallet'])
+
+    reload
+    puts "Finished buying common eggs"
   end
 
   def buy_premium_eggs(count=1)
@@ -27,6 +30,9 @@ class Neverwing
 
     reload
     claim_dragons(data['player']['wallet'])
+
+    reload
+    puts "Finished buying premium eggs"
   end
 
   private

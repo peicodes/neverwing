@@ -6,6 +6,9 @@ class Neverwing
       equip_right_dragon(pair.last) if pair.last
       play(dragon_experience: 99999)
     end
+
+    reload
+    "Finished training dragons"
   end
 
   private

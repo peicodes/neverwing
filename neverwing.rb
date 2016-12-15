@@ -7,11 +7,12 @@ require_relative 'lib/schema'
 require_relative 'lib/play'
 require_relative 'lib/dragons'
 require_relative 'lib/store'
+require_relative 'lib/evolve'
 
 class Neverwing
   attr_accessor :login_url
 
-  LOGIN_PATH = '/auth/login'.freeze
+  LOGIN_PATH = '/auth'.freeze
   LISTING_PATH = '/purchase/listing'.freeze
 
   def initialize(login_url)
